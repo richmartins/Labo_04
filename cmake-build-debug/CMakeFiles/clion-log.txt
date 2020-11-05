@@ -1,4 +1,0 @@
-"/Users/rich/Library/Application Support/JetBrains/Toolbox/apps/CLion/ch-0/202.7660.37/CLion.app/Contents/bin/cmake/mac/bin/cmake" -DCMAKE_BUILD_TYPE=Debug -DCMAKE_CXX_COMPILER=/usr/local/bin/g++-10 "-DCMAKE_CXX_FLAGS=-Wall -Wextra -Wconversion -Wsign-conversion -pedantic" -G "CodeBlocks - Unix Makefiles" /Users/rich/dev/cpp/Labo_04
--- Configuring done
--- Generating done
--- Build files have been written to: /Users/rich/dev/cpp/Labo_04/cmake-build-debug

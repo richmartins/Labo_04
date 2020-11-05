@@ -3,4 +3,4 @@ project(Labo_04)
 
 set(CMAKE_CXX_STANDARD 17)
 
-add_executable(Labo_04 main.cpp fonctions.cpp cmake-build-debug/fonctions.h)
+add_executable(Labo_04 main.cpp fonctions.cpp fonctions.h)
