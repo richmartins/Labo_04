@@ -30,7 +30,7 @@ bool nbre1er(int valeur){
 }
 
 bool nbreArmstrong(int valeur){
-   int chiffre              = 0;
+   int chiffre;
    int calculnbreArmstrong  = 0;
    int copie_valeur         = valeur;
    while (valeur > 0){
