@@ -92,10 +92,10 @@
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="/Users/rich/dev/cpp/Labo_04/cmake-build-debug/fonctions.h">
+		<Unit filename="/Users/rich/dev/cpp/Labo_04/fonctions.cpp">
 			<Option target="Labo_04"/>
 		</Unit>
-		<Unit filename="/Users/rich/dev/cpp/Labo_04/fonctions.cpp">
+		<Unit filename="/Users/rich/dev/cpp/Labo_04/fonctions.h">
 			<Option target="Labo_04"/>
 		</Unit>
 		<Unit filename="/Users/rich/dev/cpp/Labo_04/main.cpp">
