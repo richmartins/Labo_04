@@ -15,14 +15,38 @@ Compilateur     : Mingw-w64 g++ 8.1.0
 
 #include "cmake-build-debug/fonctions.h"
 
+#define CLEAR_BUFFER    cin.clear();\
+                        cin.ignore(numeric_limits<streamsize>::max(), '\n')
+
 using namespace std;
 
 int main() {
 
-   cout << estPair(42)           << endl;
-   cout << sommeChiffres(4251)   << endl;
-   cout << nbre1er(124123)       << endl;
-   cout << nbreArmstrong(371)    << endl;
+
+   const string    MSG_ENTREE_FAUSSE = "/!\\ Recommencer\n";
+   int             entreeUtilisateur;
+   do{
+      //Clear cin in case an error occured previously
+      if(cin.fail()){
+         CLEAR_BUFFER;
+      }
+
+      cout << "votre choix [0 - 7] : ";
+      cin >> entreeUtilisateur;
+   }while (( entreeUtilisateur < 0 || entreeUtilisateur > 7 || cin.fail()) && cout << MSG_ENTREE_FAUSSE);
+
+   switch (entreeUtilisateur){
+      case 0:  cout << "0" << endl;   break;
+      case 1:  cout << "1" << endl;   break;
+      case 2:  cout << "2" << endl;   break;
+      case 3:  cout << "3" << endl;   break;
+      case 4:  cout << "4" << endl;   break;
+      case 5:  cout << "5" << endl;   break;
+      case 6:  cout << "6" << endl;   break;
+      case 7:  cout << "7" << endl;   break;
+   }
 
  return EXIT_SUCCESS;
 }
+
+//ecrire plein de fonction pour tester les fct et une pour demander un nombre en x et y
