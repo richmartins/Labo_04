@@ -17,12 +17,12 @@ Compilateur     : Mingw-w64 g++ 8.1.0
 
 
 bool estPair(int valeur);
-int sommeChiffre(int valeur);
+int sommeChiffres(int valeur);
 bool nbre1er(int valeur);
 bool nbreArmstrong(int valeur);
 int random(int min, int max);
 void buffer(const std::string& chaineDeCaractere);
-void trigo(double angle);
+void trigo(double angle, double& resultat);
 bool repondOui(char reponse);
 
 #endif //LABO_04_FONCTIONS_H
