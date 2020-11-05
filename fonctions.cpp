@@ -10,6 +10,7 @@ Remarque(s)     : <à remplir>
 Compilateur     : Mingw-w64 g++ 8.1.0
 -----------------------------------------------------------------------------------
 */
+
 #include <iostream> // cout
 #include <string>   // type string
 #include <cmath>    // trigo
@@ -45,7 +46,7 @@ bool nbreArmstrong(int valeur){
     while (valeur > 0){
         chiffre = valeur % 10;
         valeur /= 10;
-        calculnbreArmstrong += pow(chiffre, 3);
+        calculnbreArmstrong += (int)pow(chiffre, 3);
     }
     return copie_valeur == calculnbreArmstrong;
 }
