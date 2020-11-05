@@ -1,5 +1,7 @@
 # clion garbage
 
+cmake-build-debug/
+
 # editor
 
 .idea/
