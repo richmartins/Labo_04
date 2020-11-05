@@ -70,7 +70,7 @@ void buffer(const std::string& chaineDeCaractere){
     for(char lettre : chaineDeCaractere){
         // selon la table ascii
         // si la lettre est entre 97 et 122 => minuscule
-        // si la lettre est entre 65 et 90 => majuscule
+        // si la lettre est entre 65 et 90  => majuscule
         if(lettre >= 65 && lettre <= 90){
             if(plusGrandeMajuscule == ' '){
                plusGrandeMajuscule = lettre;
@@ -88,23 +88,22 @@ void buffer(const std::string& chaineDeCaractere){
         }
     }
 
-    std::cout << "Plus petit minuscule:  " << plusPetiteMinuscule        << std::endl;
-    std::cout << "Plus grande majuscule: " << plusGrandeMajuscule        << std::endl;
-    std::cout << "Nombre de lettre:      " << chaineDeCaractere.length() << std::endl;
+    std::cout << "Plus petit minuscule  : " << plusPetiteMinuscule        << std::endl;
+    std::cout << "Plus grande majuscule : " << plusGrandeMajuscule        << std::endl;
+    std::cout << "Nombre de lettre      : " << chaineDeCaractere.length() << std::endl;
 }
 
                          // TODO: retourner les valeur dans result après
-void trigo(double angle/*, double& resultat*/){
-    const int nbrFonctions = 3;
+void trigo(double angle, double& resultat){
+       static int fonctions = 1;
 
-    for(int calculer = 1; calculer <= nbrFonctions; ++calculer){
-       switch(calculer) {
-           case 1 : std::cout << sin(angle) << std::endl; break;
-           case 2 : std::cout << cos(angle) << std::endl; break;
-           case 3 : std::cout << tan(angle) << std::endl; break;
-           default: std::cout << "Erreur"   << std::endl; break;
+       switch(fonctions) {
+           case 1 : resultat = sin(angle); break;
+           case 2 : resultat = cos(angle); break;
+           case 3 : resultat = tan(angle); break;
+           default: break;
        }
-    }
+       ++fonctions;
 }
 
 bool repondOui(char reponse){
