@@ -21,7 +21,6 @@ Compilateur     : Mingw-w64 g++ 8.1.0
 
 #define VERIF_ET_REPARER_BUFFER if(cin.fail()){ cin.clear(); }
 #define VIDER_BUFFER cin.ignore(numeric_limits<streamsize>::max(), '\n');
-#define VERIF_ET_REPARER_VIDER_BUFFER if(cin.fail()){ cin.clear(); cin.ignore(numeric_limits<streamsize>::max(), '\n'); }
 
 using namespace std;
 
@@ -54,11 +53,17 @@ int main() {
              << setw(ESPACE_NBR) << right << "7" << setw(ESPACE_OPTION) << left << " trigo"               << endl
              << setw(ESPACE_NBR) << right << "0" << setw(ESPACE_OPTION) << left << " quitter"             << endl;
 
-        VERIF_ET_REPARER_VIDER_BUFFER
 
         int choix;
 
         cout << "votre choix [0 - 7] : "; cin >> choix;
+
+        if(cin.fail()){
+            cout << "Erreur de saisie" << endl;
+            cin.clear();
+            VIDER_BUFFER
+            continue;
+        }
 
         switch (Fonctions(choix)) {
             case Fonctions::EST_PAIR : {
@@ -299,7 +304,10 @@ int main() {
 
                 break;
             }
-            default : break;
+            default : {
+                cout << "erreur /!\\" << endl;
+                break;
+            }
         }
     } while (!statutQuitter);
 
