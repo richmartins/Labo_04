@@ -11,7 +11,6 @@ Compilateur     : Mingw-w64 g++ 8.1.0
 -----------------------------------------------------------------------------------
 */
 
-#include <iostream> // cout
 #include <string>   // type string
 #include <cmath>    // trigo
 
@@ -62,48 +61,33 @@ int random(int min, int max){
     return min + std::rand() % (( max + 1 ) - min);
 }
 
-void buffer(const std::string& chaineDeCaractere){
-    // déclaration de variable
-    char plusPetiteMinuscule = ' ';
-    char plusGrandeMajuscule = ' ';
+unsigned long buffer(const std::string& chaineDeCaractere, char& plusPetiteMinuscule, char& plusGrandeMajuscule){
+
     // boucler sur la chaine de caractère
     for(char lettre : chaineDeCaractere){
         // selon la table ascii
         // si la lettre est entre 97 et 122 => minuscule
         // si la lettre est entre 65 et 90  => majuscule
         if(lettre >= 65 && lettre <= 90){
-            if(plusGrandeMajuscule == ' '){
+            if(plusGrandeMajuscule == ' ' || lettre > plusGrandeMajuscule){
                plusGrandeMajuscule = lettre;
             }
-            if(lettre > plusGrandeMajuscule){
-                plusGrandeMajuscule = lettre;
-            }
         } else if (lettre >= 97 && lettre <= 122){
-            if(plusPetiteMinuscule == ' '){
-                plusPetiteMinuscule = lettre;
-            }
-            if(lettre < plusPetiteMinuscule){
+            if(plusPetiteMinuscule == ' ' || lettre < plusPetiteMinuscule){
                 plusPetiteMinuscule = lettre;
             }
         }
     }
 
-    std::cout << "Plus petit minuscule  : " << plusPetiteMinuscule        << std::endl;
-    std::cout << "Plus grande majuscule : " << plusGrandeMajuscule        << std::endl;
-    std::cout << "Nombre de lettre      : " << chaineDeCaractere.length() << std::endl;
+    return chaineDeCaractere.length();
 }
 
-                         // TODO: retourner les valeur dans result après
-void trigo(double angle, double& resultat){
-       static int fonctions = 1;
+void trigo(double angle, double& sinResultat, double& cosResultat, double& tanResultat){
+    double angleEnRad = (angle * M_PI) / 180.0;
 
-       switch(fonctions) {
-           case 1 : resultat = sin(angle); break;
-           case 2 : resultat = cos(angle); break;
-           case 3 : resultat = tan(angle); break;
-           default: break;
-       }
-       ++fonctions;
+    sinResultat = sin(angleEnRad);
+    cosResultat = cos(angleEnRad);
+    tanResultat = tan(angleEnRad);
 }
 
 bool repondOui(char reponse){

@@ -1,20 +1,21 @@
 /*
 -----------------------------------------------------------------------------------
-        Nom du fichier  : main.cpp
+Nom du fichier  : main.cpp
 Nom du labo     : Labo 04 Librairie
 Auteur(s)       : Nicolas Philipp, Richard Tenorio
 Classe          : PRG1-B
 Date création   : 06.11.20
-But             : <à remplir>
+But             : Ce programme a pour but d'utiliser le fichier "fonctions.cpp" qui
+                  est une libraire de fonction
 Remarque(s)     : <à remplir>
 Compilateur     : Mingw-w64 g++ 8.1.0
 -----------------------------------------------------------------------------------
 */
 
-#include <cstdlib>
-#include <iostream>
-#include <limits>
-#include <iomanip>
+#include <cstdlib>   // EXIT_SUCCES
+#include <iostream>  // flux d'entrer et de sortie
+#include <limits>    // numeric_limits
+#include <iomanip>   // setw
 
 #include "fonctions.h"
 
@@ -25,7 +26,6 @@ Compilateur     : Mingw-w64 g++ 8.1.0
 using namespace std;
 
 int main() {
-
     enum class Fonctions{
         EST_PAIR       = 1,
         SOMME_CHIFFRE  = 2,
@@ -37,20 +37,22 @@ int main() {
         REPOND_OUI     = 0
     };
 
-    // boucle principal du systeme
     bool statutQuitter = false;
 
+    const unsigned short ESPACE_NBR    =  6;
+    const unsigned short ESPACE_OPTION = 15;
+
     do {
-        // display options
-        cout << "\n\nOptions"                                                         << endl
-             << setw(6) << right << "1" << setw(15) << left << " est pair"            << endl
-             << setw(6) << right << "2" << setw(15) << left << " somme chiffres"      << endl
-             << setw(6) << right << "3" << setw(15) << left << " nombre 1er"          << endl
-             << setw(6) << right << "4" << setw(15) << left << " nombre de Armstrong" << endl
-             << setw(6) << right << "5" << setw(15) << left << " nombre aléatoire"    << endl
-             << setw(6) << right << "6" << setw(15) << left << " buffer"              << endl
-             << setw(6) << right << "7" << setw(15) << left << " trigo"               << endl
-             << setw(6) << right << "0" << setw(15) << left << " quitter"             << endl;
+        // affiche les options
+        cout << "\n\nOptions"                                                                             << endl
+             << setw(ESPACE_NBR) << right << "1" << setw(ESPACE_OPTION) << left << " est pair"            << endl
+             << setw(ESPACE_NBR) << right << "2" << setw(ESPACE_OPTION) << left << " somme chiffres"      << endl
+             << setw(ESPACE_NBR) << right << "3" << setw(ESPACE_OPTION) << left << " nombre 1er"          << endl
+             << setw(ESPACE_NBR) << right << "4" << setw(ESPACE_OPTION) << left << " nombre de Armstrong" << endl
+             << setw(ESPACE_NBR) << right << "5" << setw(ESPACE_OPTION) << left << " nombre aléatoire"    << endl
+             << setw(ESPACE_NBR) << right << "6" << setw(ESPACE_OPTION) << left << " buffer"              << endl
+             << setw(ESPACE_NBR) << right << "7" << setw(ESPACE_OPTION) << left << " trigo"               << endl
+             << setw(ESPACE_NBR) << right << "0" << setw(ESPACE_OPTION) << left << " quitter"             << endl;
 
         VERIF_ET_REPARER_VIDER_BUFFER
         int choix;
@@ -65,8 +67,8 @@ int main() {
                 const int min = 0;
                 const int max = 1000;
 
+                // boucle de vérif. d'interval
                 do {
-                    // vérif. si buffer est ok
                     VERIF_ET_REPARER_BUFFER
                     VIDER_BUFFER
                     cout << "entrer une valeur : [" << min << " - " << max << " ] : "; cin >> nbr;
@@ -87,6 +89,7 @@ int main() {
                 const int min = 0;
                 const int max = 1000;
 
+                // boucle vérif. interval
                 do {
                     VERIF_ET_REPARER_BUFFER
                     VIDER_BUFFER
@@ -100,14 +103,19 @@ int main() {
                 break;
             }
             case Fonctions::NBRE_1ER: {
-                int minParDefaut = 0;
-                int maxParDefaut = 1000;
-                int min          = minParDefaut;
-                int max          = maxParDefaut;
+                const int minParDefaut = 0,
+                          maxParDefaut = 1000;
 
+                int max,
+                    min;
+
+                // boucle vérif. interval
                 do {
                     VERIF_ET_REPARER_BUFFER
                     VIDER_BUFFER
+
+                    min = minParDefaut;
+                    max = maxParDefaut;
 
                     cout << "Determiner les nombre premiers compris dans un intervalle" << endl;
                     cout << "- debut : [ " << min << " - " << max << " ] : ";
@@ -131,6 +139,7 @@ int main() {
                 int min;
                 int max;
 
+                // boucle vérif. interval
                 do {
                     min = minParDefaut;
                     max = maxParDefaut;
@@ -151,6 +160,7 @@ int main() {
                         cout << "le nombre " << nbr << " est un nombre d'Armstrong" << endl;
                     }
                 }
+
                 break;
             }
             case Fonctions::RANDOM: {
@@ -163,42 +173,70 @@ int main() {
                     max,
                     cbNbrRandom;
 
+                // boucle vérif. interval
                 do {
                     min         = minParDefaut,
                     max         = maxParDefaut,
                     cbNbrRandom = 1;
+
                     VERIF_ET_REPARER_BUFFER
                     VIDER_BUFFER
 
-                    cout << "Determiner les nombre premiers compris dans un intervalle"                          << endl
-                         << "- debut : [ " << min << " - " << max << " ] : ";                   cin >> min; cout << endl
-                         << "- fin   : [ " << min << " - " << max << " ] : ";                   cin >> max; cout << endl
-                                                                                                                                                                                                         << "- nbre  : [ " << minNbrRandom << " - " << maxNbrRandom << " ] : "; cin >> cbNbrRandom;
+                    cout << "Determiner les nombre premiers compris dans un intervalle" << endl
+                         << "- debut : [ " << min << " - " << max << " ] : ";
+                    cin  >> min;
+                    cout << "- fin   : [ " << min << " - " << max << " ] : ";
+                    cin  >> max;
+                    cout << "- nbre  : [ " << minNbrRandom << " - " << maxNbrRandom << " ] : ";
+                    cin  >> cbNbrRandom;
 
-                }while ((min <= minParDefaut || max >= maxParDefaut)
-                        && (cbNbrRandom <= minNbrRandom || cbNbrRandom > maxNbrRandom));
+                } while ((min < minParDefaut || max > maxParDefaut) || (cbNbrRandom < minNbrRandom || cbNbrRandom > maxNbrRandom));
 
-                cout << "Voici des valeurs aletoires [ " << min << " - " << max << " ]";
-                for(int nbrFois = 1; nbrFois <= cbNbrRandom; ++cbNbrRandom){
-                    cout << " " << random(min, max) << ","; // TODO: dectecter quand c'est le dernier et pas mettre la ","
+                cout << "Voici des valeurs aletoires [ " << min << " - " << max << " ] : " << endl;
+
+                for(int nbrFois = 1; nbrFois <= cbNbrRandom; ++nbrFois){
+                    cout << " " << random(min, max);
+
+                    if(nbrFois != cbNbrRandom) {
+                        cout << ",";
+                    }
                 }
 
                 break;
             }
             case Fonctions::BUFFER: {
                 string chaineDeCaractere;
-                cout << "entrer un phrase : "; cin >> chaineDeCaractere;
-                buffer(chaineDeCaractere);
+                char plusPetiteMinuscule = ' ';
+                char plusGrandeMajuscule = ' ';
+
+                // boucle vérif. interval
+                do {
+                    VERIF_ET_REPARER_BUFFER
+                    VIDER_BUFFER
+
+                    cout << "entrer un phrase : ";
+                    getline(cin, chaineDeCaractere);
+
+                } while(chaineDeCaractere.length() < 1);
+
+                unsigned long nbrLettres = buffer(chaineDeCaractere, plusPetiteMinuscule, plusGrandeMajuscule);
+
+                cout << "Plus petit minuscule  : " << plusPetiteMinuscule << endl;
+                cout << "Plus grande majuscule : " << plusGrandeMajuscule << endl;
+                cout << "Nombre de lettre      : " << nbrLettres          << endl;
 
                 break;
             }
             case Fonctions::TRIGO: {
-                int       angle;
-                double resultat;
+                int    angle;
+                double   sin,
+                         cos,
+                         tan;
 
                 const double minAngle =   0,
-                        maxAngle = 360;
+                             maxAngle = 360;
 
+                // boucle vérif. interval
                 do {
                     VERIF_ET_REPARER_BUFFER
                     VIDER_BUFFER
@@ -207,16 +245,17 @@ int main() {
 
                 } while (angle < minAngle || angle > maxAngle);
 
-                for(int fonctions = 1; fonctions <= 3; ++ fonctions){
-                    trigo(angle, resultat);
-                    cout << resultat << endl; //TODO: meilleur message avec le nom de la fonction de trigo
-                }
+                    trigo(angle, sin, cos, tan);
 
+                    cout << "sin(" << angle << ") = " << sin << endl;
+                    cout << "cos(" << angle << ") = " << cos << endl;
+                    cout << "tan(" << angle << ") = " << tan << endl;
                 break;
             }
             case Fonctions::REPOND_OUI: {
                 char caractere;
 
+                // boucle vérif. interval
                 do {
                     VERIF_ET_REPARER_BUFFER
                     VIDER_BUFFER
@@ -235,4 +274,3 @@ int main() {
     return EXIT_SUCCESS;
 }
 
-//ecrire plein de fonction pour tester les fct et une pour demander un nombre en x et y
