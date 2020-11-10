@@ -39,7 +39,7 @@ int main() {
 
     bool statutQuitter = false;
 
-    const unsigned short ESPACE_NBR    =  6;
+    const unsigned short ESPACE_NBR    =  7;
     const unsigned short ESPACE_OPTION = 15;
 
     do {
@@ -55,6 +55,7 @@ int main() {
              << setw(ESPACE_NBR) << right << "0" << setw(ESPACE_OPTION) << left << " quitter"             << endl;
 
         VERIF_ET_REPARER_VIDER_BUFFER
+
         int choix;
 
         cout << "votre choix [0 - 7] : "; cin >> choix;
@@ -73,7 +74,11 @@ int main() {
                     VIDER_BUFFER
                     cout << "entrer une valeur : [" << min << " - " << max << " ] : "; cin >> nbr;
 
-                } while(nbr < min ||nbr > max);
+                    if(nbr < min ||nbr > max){
+                        cout << "/!\\ erreur /!\\" << endl;
+                    }
+
+                } while (nbr < min ||nbr > max);
 
                 if(estPair(nbr)){
                     cout << nbr << " est une valeur pair";
@@ -96,7 +101,11 @@ int main() {
 
                     cout << "entrer une valeur : [" << min << " - " << max << " ] : "; cin >> nbr;
 
-                }while(nbr < min ||nbr > max);
+                    if(nbr < min ||nbr > max){
+                        cout << "/!\\ erreur /!\\" << endl;
+                    }
+
+                } while (nbr < min ||nbr > max);
 
                 cout << "la somme des chiffres de " << nbr << " = " << sommeChiffres(nbr) << endl;
 
@@ -111,17 +120,22 @@ int main() {
 
                 // boucle vérif. interval
                 do {
-                    VERIF_ET_REPARER_BUFFER
-                    VIDER_BUFFER
 
                     min = minParDefaut;
                     max = maxParDefaut;
 
+                    VERIF_ET_REPARER_BUFFER
+                    VIDER_BUFFER
+
                     cout << "Determiner les nombre premiers compris dans un intervalle" << endl;
                     cout << "- debut : [ " << min << " - " << max << " ] : ";
-                    cin >> min;
+                    cin  >> min;
                     cout << "- fin   : [ " << min << " - " << max << " ] : ";
-                    cin >> max;
+                    cin  >> max;
+
+                    if(min < minParDefaut || max > maxParDefaut){
+                        cout << "/!\\ erreur /!\\" << endl;
+                    }
 
                 } while(min < minParDefaut || max > maxParDefaut);
 
@@ -152,6 +166,10 @@ int main() {
                     cin  >> min;
                     cout << "- fin   : [ " << min << " - " << max << " ] : ";
                     cin  >> max;
+
+                    if(min < minParDefaut || max > maxParDefaut){
+                        cout << "/!\\ erreur /!\\" << endl;
+                    }
 
                 } while(min < minParDefaut || max > maxParDefaut);
 
@@ -190,6 +208,10 @@ int main() {
                     cout << "- nbre  : [ " << minNbrRandom << " - " << maxNbrRandom << " ] : ";
                     cin  >> cbNbrRandom;
 
+                    if((min < minParDefaut || max > maxParDefaut) || (cbNbrRandom < minNbrRandom || cbNbrRandom > maxNbrRandom)){
+                        cout << "/!\\ erreur /!\\" << endl;
+                    }
+
                 } while ((min < minParDefaut || max > maxParDefaut) || (cbNbrRandom < minNbrRandom || cbNbrRandom > maxNbrRandom));
 
                 cout << "Voici des valeurs aletoires [ " << min << " - " << max << " ] : " << endl;
@@ -206,6 +228,7 @@ int main() {
             }
             case Fonctions::BUFFER: {
                 string chaineDeCaractere;
+
                 char plusPetiteMinuscule = ' ';
                 char plusGrandeMajuscule = ' ';
 
@@ -216,6 +239,11 @@ int main() {
 
                     cout << "entrer un phrase : ";
                     getline(cin, chaineDeCaractere);
+
+
+                    if(chaineDeCaractere.length() < 1){
+                        cout << "/!\\ erreur /!\\" << endl;
+                    }
 
                 } while(chaineDeCaractere.length() < 1);
 
@@ -242,6 +270,10 @@ int main() {
                     VIDER_BUFFER
 
                     cout << "entrer un angle en degre : [ " << minAngle << " - " << maxAngle << " ] : "; cin >> angle;
+
+                    if(angle < minAngle || angle > maxAngle){
+                        cout << "/!\\ erreur /!\\" << endl;
+                    }
 
                 } while (angle < minAngle || angle > maxAngle);
 
@@ -273,4 +305,3 @@ int main() {
 
     return EXIT_SUCCESS;
 }
-
