@@ -43,7 +43,7 @@ int main() {
 
     do {
         // affiche les options
-        cout << "\n\nOptions"                                                                             << endl
+        cout << "\n\nOptions :"                                                                             << endl
              << setw(ESPACE_NBR) << right << "1" << setw(ESPACE_OPTION) << left << " est pair"            << endl
              << setw(ESPACE_NBR) << right << "2" << setw(ESPACE_OPTION) << left << " somme chiffres"      << endl
              << setw(ESPACE_NBR) << right << "3" << setw(ESPACE_OPTION) << left << " nombre 1er"          << endl
@@ -317,7 +317,7 @@ int main() {
                 break;
             }
             default : {
-                cout << "erreur /!\\" << endl;
+                cout << "/!\\erreur /!\\" << endl;
                 break;
             }
         }
