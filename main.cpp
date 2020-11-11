@@ -70,20 +70,21 @@ int main() {
 
                 int nbr;
 
-                const int min = 0;
-                const int max = 1000;
+                const int MIN = 0;
+                const int MAX = 1000;
 
                 // boucle de vérif. d'interval
                 do {
                     VERIF_ET_REPARER_BUFFER
                     VIDER_BUFFER
-                    cout << "entrer une valeur : [" << min << " - " << max << " ] : "; cin >> nbr;
+                    cout << "entrer une valeur : [" << MIN << " - " << MAX << " ] : ";
+                    cin  >> nbr;
 
-                    if(nbr < min ||nbr > max){
+                    if(nbr < MIN || nbr > MAX || cin.fail()){
                         cout << "/!\\ erreur /!\\" << endl;
                     }
 
-                } while (nbr < min ||nbr > max);
+                } while (nbr < MIN || nbr > MAX || cin.fail());
 
                 if(estPair(nbr)){
                     cout << nbr << " est une valeur pair";
@@ -96,29 +97,30 @@ int main() {
             case Fonctions::SOMME_CHIFFRE: {
                 int nbr;
 
-                const int min = 0;
-                const int max = 1000;
+                const int MIN = 0;
+                const int MAX = 1000;
 
                 // boucle vérif. interval
                 do {
                     VERIF_ET_REPARER_BUFFER
                     VIDER_BUFFER
 
-                    cout << "entrer une valeur : [" << min << " - " << max << " ] : "; cin >> nbr;
+                    cout << "entrer une valeur : [" << MIN << " - " << MAX << " ] : ";
+                    cin >> nbr;
 
-                    if(nbr < min ||nbr > max){
+                    if(nbr < MIN || nbr > MAX){
                         cout << "/!\\ erreur /!\\" << endl;
                     }
 
-                } while (nbr < min ||nbr > max);
+                } while (nbr < MIN || nbr > MAX);
 
                 cout << "la somme des chiffres de " << nbr << " = " << sommeChiffres(nbr) << endl;
 
                 break;
             }
             case Fonctions::NBRE_1ER: {
-                const int minParDefaut = 0,
-                          maxParDefaut = 1000;
+                const int MIN_PAR_DEFAUT = 0,
+                          MAX_PAR_DEFAUT = 1000;
 
                 int max,
                     min;
@@ -126,8 +128,8 @@ int main() {
                 // boucle vérif. interval
                 do {
 
-                    min = minParDefaut;
-                    max = maxParDefaut;
+                    min = MIN_PAR_DEFAUT;
+                    max = MAX_PAR_DEFAUT;
 
                     VERIF_ET_REPARER_BUFFER
                     VIDER_BUFFER
@@ -138,11 +140,11 @@ int main() {
                     cout << "- fin   : [ " << min << " - " << max << " ] : ";
                     cin  >> max;
 
-                    if(min < minParDefaut || max > maxParDefaut){
+                    if(min < MIN_PAR_DEFAUT || max > MAX_PAR_DEFAUT){
                         cout << "/!\\ erreur /!\\" << endl;
                     }
 
-                } while(min < minParDefaut || max > maxParDefaut);
+                } while(min < MIN_PAR_DEFAUT || max > MAX_PAR_DEFAUT);
 
                 for(int nbr = min; nbr <= max; ++nbr){
                     if(nbre1er(nbr)) {
@@ -153,30 +155,30 @@ int main() {
                 break;
             }
             case Fonctions::NBRE_ARMSTRONG: {
-                const int minParDefaut = 0;
-                const int maxParDefaut = 1000;
+                const int MIN_PAR_DEFAUT = 0;
+                const int MAX_PAR_DEFAUT = 1000;
                 int min;
                 int max;
 
                 // boucle vérif. interval
                 do {
-                    min = minParDefaut;
-                    max = maxParDefaut;
+                    min = MIN_PAR_DEFAUT;
+                    max = MAX_PAR_DEFAUT;
 
                     VERIF_ET_REPARER_BUFFER
                     VIDER_BUFFER
 
-                    cout << "Determiner les nombre premiers compris dans un intervalle" << endl;
+                    cout << "Determiner les nombre de Armstrong compris dans un intervalle" << endl;
                     cout << "- debut : [ " << min << " - " << max << " ] : ";
                     cin  >> min;
                     cout << "- fin   : [ " << min << " - " << max << " ] : ";
                     cin  >> max;
 
-                    if(min < minParDefaut || max > maxParDefaut){
+                    if(min < MIN_PAR_DEFAUT || max > MAX_PAR_DEFAUT){
                         cout << "/!\\ erreur /!\\" << endl;
                     }
 
-                } while(min < minParDefaut || max > maxParDefaut);
+                } while(min < MIN_PAR_DEFAUT || max > MAX_PAR_DEFAUT);
 
                 for(int nbr = min; nbr <= max; ++nbr){
                     if(nbreArmstrong(nbr)){
@@ -187,10 +189,10 @@ int main() {
                 break;
             }
             case Fonctions::RANDOM: {
-                const int minParDefaut =  -100,
-                          maxParDefaut =   100,
-                          minNbrRandom =     0,
-                          maxNbrRandom =   100;
+                const int MIN_PAR_DEFAUT =  -100,
+                          MAX_PAR_DEFAUT =   100,
+                          MIN_NBR_RANDOM =     0,
+                          MAX_NBR_RANDOM =   100;
 
                 int min,
                     max,
@@ -198,26 +200,26 @@ int main() {
 
                 // boucle vérif. interval
                 do {
-                    min         = minParDefaut,
-                    max         = maxParDefaut,
+                    min         = MIN_PAR_DEFAUT,
+                    max         = MAX_PAR_DEFAUT,
                     cbNbrRandom = 1;
 
                     VERIF_ET_REPARER_BUFFER
                     VIDER_BUFFER
 
-                    cout << "Determiner les nombre premiers compris dans un intervalle" << endl
+                    cout << "Determiner une serie de nombre aleatoire compris dans un intervalle" << endl
                          << "- debut : [ " << min << " - " << max << " ] : ";
                     cin  >> min;
                     cout << "- fin   : [ " << min << " - " << max << " ] : ";
                     cin  >> max;
-                    cout << "- nbre  : [ " << minNbrRandom << " - " << maxNbrRandom << " ] : ";
+                    cout << "- nbre  : [ " << MIN_NBR_RANDOM << " - " << MAX_NBR_RANDOM << " ] : ";
                     cin  >> cbNbrRandom;
 
-                    if((min < minParDefaut || max > maxParDefaut) || (cbNbrRandom < minNbrRandom || cbNbrRandom > maxNbrRandom)){
+                    if((min < MIN_PAR_DEFAUT || max > MAX_PAR_DEFAUT) || (cbNbrRandom < MIN_NBR_RANDOM || cbNbrRandom > MAX_NBR_RANDOM)){
                         cout << "/!\\ erreur /!\\" << endl;
                     }
 
-                } while ((min < minParDefaut || max > maxParDefaut) || (cbNbrRandom < minNbrRandom || cbNbrRandom > maxNbrRandom));
+                } while ((min < MIN_PAR_DEFAUT || max > MAX_PAR_DEFAUT) || (cbNbrRandom < MIN_NBR_RANDOM || cbNbrRandom > MAX_NBR_RANDOM));
 
                 cout << "Voici des valeurs aletoires [ " << min << " - " << max << " ] : " << endl;
 
@@ -254,8 +256,12 @@ int main() {
 
                 unsigned long nbrLettres = buffer(chaineDeCaractere, plusPetiteMinuscule, plusGrandeMajuscule);
 
-                cout << "Plus petit minuscule  : " << plusPetiteMinuscule << endl;
-                cout << "Plus grande majuscule : " << plusGrandeMajuscule << endl;
+                if (plusPetiteMinuscule != ' '){
+                    cout << "Plus petit minuscule  : " << plusPetiteMinuscule << endl;
+                }
+                if (plusGrandeMajuscule != ' ') {
+                    cout << "Plus grande majuscule : " << plusGrandeMajuscule << endl;
+                }
                 cout << "Nombre de lettre      : " << nbrLettres          << endl;
 
                 break;
@@ -266,41 +272,47 @@ int main() {
                          cos,
                          tan;
 
-                const double minAngle =   0,
-                             maxAngle = 360;
+                const double MIN_ANGLE =   0,
+                             MAX_ANGLE = 360;
 
                 // boucle vérif. interval
                 do {
                     VERIF_ET_REPARER_BUFFER
                     VIDER_BUFFER
 
-                    cout << "entrer un angle en degre : [ " << minAngle << " - " << maxAngle << " ] : "; cin >> angle;
+                    cout << "entrer un angle en degre : [ " << MIN_ANGLE << " - " << MAX_ANGLE << " ] : "; cin >> angle;
 
-                    if(angle < minAngle || angle > maxAngle){
+                    if(angle < MIN_ANGLE || angle > MAX_ANGLE){
                         cout << "/!\\ erreur /!\\" << endl;
                     }
 
-                } while (angle < minAngle || angle > maxAngle);
+                } while (angle < MIN_ANGLE || angle > MAX_ANGLE);
 
                     trigo(angle, sin, cos, tan);
 
+                    cout << fixed << setprecision(2);
                     cout << "sin(" << angle << ") = " << sin << endl;
                     cout << "cos(" << angle << ") = " << cos << endl;
-                    cout << "tan(" << angle << ") = " << tan << endl;
+                    if (angle == 90 or angle == 270){    //tan(90) et tan(270) n'existe pas
+                        cout << "tan(" << angle << ") = " << "indetermine" << endl;
+                    }
+                    else {
+                        cout << "tan(" << angle << ") = " << tan << endl;
+                    }
                 break;
             }
             case Fonctions::REPOND_OUI: {
                 char caractere;
 
-                // boucle vérif. interval
+                // boucle vérif. saisie
                 do {
                     VERIF_ET_REPARER_BUFFER
                     VIDER_BUFFER
 
-                    cout << "Voulez-vous quitter = [o - n] : "; cin >> caractere;
+                    cout << "Voulez-vous quitter = [o - n] : ";
+                    cin >> caractere;
 
-                } while (!repondOui(caractere));
-                statutQuitter = true;
+                } while (!repondOui(caractere, statutQuitter));
 
                 break;
             }

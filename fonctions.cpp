@@ -13,6 +13,7 @@ Compilateur     : Mingw-w64 g++ 8.1.0
 
 #include <string>   // type string
 #include <cmath>    // trigo
+#include <time.h>
 
 #include "fonctions.h"
 
@@ -83,15 +84,20 @@ unsigned long buffer(const std::string& chaineDeCaractere, char& plusPetiteMinus
 }
 
 void trigo(double angle, double& sinResultat, double& cosResultat, double& tanResultat){
-    double angleEnRad = (angle * M_PI) / 180.0;
+    double angleEnRad = (angle * 3.14) / 180.0;
 
     sinResultat = sin(angleEnRad);
     cosResultat = cos(angleEnRad);
     tanResultat = tan(angleEnRad);
 }
 
-bool repondOui(char reponse){
+bool repondOui(char reponse, bool& decision){
     if(reponse == 'o' || reponse == 'O'){
+        decision = true;
+        return true;
+    }
+    else if (reponse == 'n' || reponse == 'N'){
+        decision = false;
         return true;
     }
     return false;

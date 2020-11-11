@@ -101,6 +101,6 @@ Compilateur     : Mingw-w64 g++ 8.1.0
      * @param char reponse
      * @return bool
      */
-    bool repondOui(char reponse);
+    bool repondOui(char reponse, bool& decision);
 
 #endif //LABO_04_FONCTIONS_H
