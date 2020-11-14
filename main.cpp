@@ -152,11 +152,11 @@ int main() {
                     cout << "- fin   : [ " << min << " - " << max << " ] : ";
                     cin  >> max;
 
-                    if(min < MIN_PAR_DEFAUT || max > MAX_PAR_DEFAUT){
+                    if(min < MIN_PAR_DEFAUT || max > MAX_PAR_DEFAUT || max < min){
                         cout << "/!\\ erreur /!\\" << endl;
                     }
 
-                } while(min < MIN_PAR_DEFAUT || max > MAX_PAR_DEFAUT);
+                } while(min < MIN_PAR_DEFAUT || max > MAX_PAR_DEFAUT || max < min);
 
                 for(int nbr = min; nbr <= max; ++nbr){
                     if(nbre1er(nbr)) {
@@ -186,11 +186,11 @@ int main() {
                     cout << "- fin   : [ " << min << " - " << max << " ] : ";
                     cin  >> max;
 
-                    if(min < MIN_PAR_DEFAUT || max > MAX_PAR_DEFAUT){
+                    if(min < MIN_PAR_DEFAUT || max > MAX_PAR_DEFAUT || max < min){
                         cout << "/!\\ erreur /!\\" << endl;
                     }
 
-                } while(min < MIN_PAR_DEFAUT || max > MAX_PAR_DEFAUT);
+                } while(min < MIN_PAR_DEFAUT || max > MAX_PAR_DEFAUT || max < min);
 
                 for(int nbr = min; nbr <= max; ++nbr){
                     if(nbreArmstrong(nbr)){
@@ -227,11 +227,11 @@ int main() {
                     cout << "- nbre  : [ " << MIN_NBR_RANDOM << " - " << MAX_NBR_RANDOM << " ] : ";
                     cin  >> cbNbrRandom;
 
-                    if((min < MIN_PAR_DEFAUT || max > MAX_PAR_DEFAUT) || (cbNbrRandom < MIN_NBR_RANDOM || cbNbrRandom > MAX_NBR_RANDOM)){
+                    if((min < MIN_PAR_DEFAUT || max > MAX_PAR_DEFAUT) || (cbNbrRandom < MIN_NBR_RANDOM || cbNbrRandom > MAX_NBR_RANDOM) || max < min){
                         cout << "/!\\ erreur /!\\" << endl;
                     }
 
-                } while ((min < MIN_PAR_DEFAUT || max > MAX_PAR_DEFAUT) || (cbNbrRandom < MIN_NBR_RANDOM || cbNbrRandom > MAX_NBR_RANDOM));
+                } while ((min < MIN_PAR_DEFAUT || max > MAX_PAR_DEFAUT) || (cbNbrRandom < MIN_NBR_RANDOM || cbNbrRandom > MAX_NBR_RANDOM) || max < min);
 
                 cout << "Voici des valeurs aletoires [ " << min << " - " << max << " ] : " << endl;
 
