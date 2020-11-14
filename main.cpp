@@ -4,11 +4,23 @@ Nom du fichier  : main.cpp
 Nom du labo     : Labo 04 Librairie
 Auteur(s)       : Nicolas Philipp, Richard Tenorio
 Classe          : PRG1-B
-Date création   : 06.11.20
-But             : Ce programme a pour but d'utiliser le fichier "fonctions.cpp" qui
-                  est une libraire de fonction
-Remarque(s)     : <à remplir>
-Compilateur     : Mingw-w64 g++ 8.1.0
+Date création   : 05.11.20
+Description     : Ce programme utilise le fichier « fonctions.cpp » qui permet d’utiliser 8
+                  - Est pair. Détermine si un nombre est pair
+                  - sommeChiffres. Calcul la somme des chiffres d’un nombre donné
+                  - nbre1er, Détermine si un nombre entrer est un nombre premier
+                  - nbreArmstrong, Détermine si un nombre entrer est un nombre d’Armstrong
+                  - random, retourne des nombres aléatoire
+                  - buffer, traite une chaîne de caractère et détermine la plus petite minuscule, la plus
+                    grande majuscule et le nombre de caractère traiter dans la chaîne de caractère
+                  - trigo, détermine le sinus, cosinus et la tangente d’un angle en degré entrer.
+                  - repondOui, Détermine si l’utilisateur veux quitter le programme ou non
+
+Remarque        : Nous avons juger que les boucles « do while » de vérification de d’intervalle
+                  des entrées saisie par les utilisateurs n’ont pas besoin d’être optimisée dans une
+                  fonction car elles ne sont pas toutes pareil et donc pas redondante
+
+ Compilateur     : Mingw-w64 g++ 8.1.0
 -----------------------------------------------------------------------------------
 */
 

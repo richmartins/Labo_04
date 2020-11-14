@@ -5,9 +5,10 @@ Nom du labo     : Labo_04
 Auteur(s)       : Nicolas Philipp, Richard Tenorio
 Classe          : PRG1-B
 Date création   : 05.11.20
-But             : Librarie de fonctions
-Remarque(s)     : <à remplir>
-Compilateur     : Mingw-w64 g++ 8.1.0
+Description     : Fichier d’en-tête contenant les prototypes des fonctions défini
+                  dans « fonctions.cpp »
+
+ Compilateur     : Mingw-w64 g++ 8.1.0
 -----------------------------------------------------------------------------------
 */
 
